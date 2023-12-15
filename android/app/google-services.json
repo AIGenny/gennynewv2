@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "690641507832",
+    "project_id": "genny-v2-75394",
+    "storage_bucket": "genny-v2-75394.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690641507832:android:7b3f81da4d8af4b705720d",
+        "android_client_info": {
+          "package_name": "com.example.gennynewv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690641507832-8nmdf4p867rtdthta6ekni2o09rj074t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gennynewv2",
+            "certificate_hash": "0463f63c732191ac8ebb30a6eea47068a9ccafdf"
+          }
+        },
+        {
+          "client_id": "690641507832-08qu09rs5j59o211ihdldep0nu2kncre.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACezt6NmfpvK-imgX2nGZ3MXJSPA3Ssx8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690641507832-08qu09rs5j59o211ihdldep0nu2kncre.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "690641507832-49etklc61cpuijm6tkpeo6k2g8tn6rl9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gennynewv2"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
