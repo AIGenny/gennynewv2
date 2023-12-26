@@ -10,7 +10,7 @@ import '../repository/auth_repository.dart';
 //With state provider we will be able to Change the content or the value
 //of the state provider
 final userProvider = StateProvider<UserModel?>((ref) => null);
-
+final appThemeProvider = StateProvider<bool>((ref) => false);
 final authControllerProvider = StateNotifierProvider<AuthController, bool>(
   (ref) => AuthController(
     authRepository: ref.watch(AuthRepositoryProvider),

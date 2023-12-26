@@ -33,7 +33,6 @@ class MyApp extends ConsumerStatefulWidget {
 
 class _MyAppState extends ConsumerState<MyApp> {
   UserModel? userModel;
-
   void getData(WidgetRef ref, User data) async {
     userModel = await ref
         .watch(authControllerProvider.notifier)
@@ -45,12 +44,13 @@ class _MyAppState extends ConsumerState<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    var isDarkMode = ref.watch(appThemeProvider);
     return ref.watch(authStateChangeProvider).when(
           data: (data) => MaterialApp.router(
             // theme: ThemeData(fontFamily: 'Raleway'),
             debugShowCheckedModeBanner: false,
             title: 'GENNY AI',
-            theme: AppTheme.theme,
+            theme: AppTheme.getAppTheme(context, ref.watch(appThemeProvider)),
             routerDelegate: RoutemasterDelegate(
               routesBuilder: (context) {
                 if (data != null) {

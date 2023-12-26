@@ -78,7 +78,7 @@ class _EditOutfitScreenState extends ConsumerState<EditOutfitScreen> {
                     },
                   ),
                   CustomTextFormField(
-                    initialValue: outfit.purchaseUrl,
+                    //initialValue: outfit.purchaseUrl,
                     onChanged: (val) {
                       setState(() {
                         url = val;
@@ -128,13 +128,14 @@ class _EditOutfitScreenState extends ConsumerState<EditOutfitScreen> {
                       await myOutfitController
                           .editOutfit(
                         OutfitModel(
+                          purchaseUrls: [],
                           id: outfit.id,
                           imageLinks: outfit.imageLinks,
                           title: title.isNotEmpty ? title : outfit.title,
-                          purchaseUrl:
-                              url.isNotEmpty ? url : outfit.purchaseUrl,
+                          // purchaseUrl:
+                          //     url.isNotEmpty ? url : outfit.purchaseUrl,
                           description:
-                              desc.isNotEmpty ? desc : outfit.description,
+                          desc.isNotEmpty ? desc : outfit.description,
                         ),
                       )
                           .then((value) {

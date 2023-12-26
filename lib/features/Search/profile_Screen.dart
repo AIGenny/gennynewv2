@@ -69,12 +69,14 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
     return isLoading
         ? const Center(
-      child: CircularProgressIndicator(),
-    )
+            child: CircularProgressIndicator(),
+          )
         : Scaffold(
       appBar: AppBar(
-
-        title: Text(
+         iconTheme: IconThemeData(
+         color: Colors.black,
+         ),
+          title: Text(
           userData['name'],
         ),
         centerTitle: false,
@@ -197,7 +199,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     top: 1,
                   ),
                   child: Text(
-                    "hhh"
+                      userData['bio']?? ""
                   ),
                 ),
               ],
@@ -210,7 +212,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 .where('uid', isEqualTo: widget.uid)
                 .get(),
             builder: (context, snapshot) {
-
+              print(snapshot.data);
               if (snapshot.connectionState == ConnectionState.waiting && snapshot!.data ==null) {
                 return const Center(
                   child: CircularProgressIndicator(),
@@ -230,7 +232,6 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 itemBuilder: (context, index) {
                   DocumentSnapshot snap =
                   (snapshot.data! as dynamic).docs[index];
-
                   return SizedBox(
                     child: Image(
                       image: NetworkImage(snap['postUrl']),

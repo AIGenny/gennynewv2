@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../HomeFeed/Home_feed_screen.dart';
+import '../../Search/profile_Screen.dart';
 import '../../my outfits/my_outfits_screen.dart';
 import '../../notifications/screens/notification_screen.dart';
 import '../../post/screens/image_pick_screen.dart';
@@ -23,7 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
       const ImagePick(),
       const MyOutfitScreen(),
       const NotificationScreen(),
-      const AboutScreen()
+      const ProfileScreen(
+        uid: "3UPiF4SF8HXU8D0gr9St8TiETXt2")
       // const AddOutfitScreen(),
     ];
   }
@@ -51,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.whatshot_outlined),
+        icon: const Icon(Icons.person),
         activeColorPrimary: const Color.fromARGB(255, 247, 248, 249),
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),

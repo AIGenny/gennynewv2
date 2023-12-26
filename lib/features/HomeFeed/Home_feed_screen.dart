@@ -1,16 +1,5 @@
-
-import 'dart:typed_data';
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:file_picker/src/file_picker_result.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:image_cropper/image_cropper.dart';
-import 'package:image_picker/image_picker.dart';
-
-
-import '../../core/utilies.dart';
 import '../../router.dart';
 import '../components/components.dart';
 import 'post.dart';
@@ -68,7 +57,7 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {navigateTo(context, Routes.addPost,replace: true);},
+        onPressed: () {navigateTo(context, Routes.addPost,replace: false);},
         child: Icon(Icons.add), // You can use any Icon you want
         backgroundColor: Colors.blue, // Customize the background color
       ),

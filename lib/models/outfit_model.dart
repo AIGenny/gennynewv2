@@ -2,36 +2,54 @@ import 'dart:convert';
 
 class OutfitModel {
   List<String> imageLinks;
+  List<String> purchaseUrls;
   final String title;
-  final String purchaseUrl;
   final String description;
-  String? id;
+  String? id, size, outfitType;
+  int? color;
+  List<String>? tags;
 
   OutfitModel({
     this.id,
     required this.imageLinks,
     required this.title,
-    required this.purchaseUrl,
+    required this.purchaseUrls,
     required this.description,
+    this.size,
+    this.color,
+    this.outfitType,
+    this.tags,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'imageLinks': imageLinks,
       'title': title,
-      'purchaseUrl': purchaseUrl,
+      'purchaseUrls': purchaseUrls,
       'description': description,
       'id': id,
+      'size': size,
+      'color': color,
+      'outfitType': outfitType,
+      'tags': tags,
     };
   }
 
   factory OutfitModel.fromMap(Map<String, dynamic> map) {
+    List<String> urls = [];
+    if (map['purchaseUrls'] != null) {
+      urls = List<String>.from(map['purchaseUrls']);
+    }
     return OutfitModel(
       id: map['id'],
-      imageLinks: map['imageLinks'],
+      imageLinks: List<String>.from((map['imageLinks'])),
       title: map['title'],
-      purchaseUrl: map['purchaseUrl'],
+      purchaseUrls: urls,
       description: map['description'],
+      size: map['size'],
+      color: map['color'],
+      outfitType: map['outfitType'],
+      tags: List<String>.from(map['tags'] ?? []),
     );
   }
 

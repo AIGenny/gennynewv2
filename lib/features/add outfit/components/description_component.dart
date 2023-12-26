@@ -15,8 +15,7 @@ class DescriptionComponent extends ConsumerStatefulWidget {
   final TextEditingController controller;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _DescriptionComponentState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _DescriptionComponentState();
 }
 
 class _DescriptionComponentState extends ConsumerState<DescriptionComponent> {

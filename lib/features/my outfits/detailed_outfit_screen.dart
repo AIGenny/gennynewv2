@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:markdown_viewer/markdown_viewer.dart';
 
+import '../../core/providers/firebase_providers.dart';
 import '../../router.dart';
 import '../components/components.dart';
 import 'controllers/myoutfit_controller.dart';
@@ -38,8 +39,9 @@ class _DetailedOutfitScreen extends ConsumerState<DetailedOutfitScreen> {
   @override
   Widget build(BuildContext context) {
     final outfit = ref.watch(myOutfitProvider).outfitModel!;
+    final uid = ref.watch(authProvider).currentUser!.uid;
     int horizontalImageTileCount = outfit.imageLinks.length - 1;
-    _getMetadata(outfit.purchaseUrl);
+
     return Scaffold(
       appBar: const CustomAppBar(),
       body: Padding(

@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "690641507832",
-    "project_id": "genny-v2-75394",
-    "storage_bucket": "genny-v2-75394.appspot.com"
+    "project_number": "1013103955535",
+    "project_id": "genny-v2-65c21",
+    "storage_bucket": "genny-v2-65c21.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:690641507832:android:7b3f81da4d8af4b705720d",
+        "mobilesdk_app_id": "1:1013103955535:android:39c0a0f908af5cbe4ce43a",
         "android_client_info": {
           "package_name": "com.example.gennynewv2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "690641507832-8nmdf4p867rtdthta6ekni2o09rj074t.apps.googleusercontent.com",
+          "client_id": "1013103955535-cj3tm95f2ebav6lek4nhiqdrmc77sf2p.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.gennynewv2",
@@ -22,28 +22,21 @@
           }
         },
         {
-          "client_id": "690641507832-08qu09rs5j59o211ihdldep0nu2kncre.apps.googleusercontent.com",
+          "client_id": "1013103955535-8ndnn2imukc7u1q396kedtpl5mgm9vf9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyACezt6NmfpvK-imgX2nGZ3MXJSPA3Ssx8"
+          "current_key": "AIzaSyCmBnRpiM9ZWiRkW2XDKGdGMnWnb3d4UAM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "690641507832-08qu09rs5j59o211ihdldep0nu2kncre.apps.googleusercontent.com",
+              "client_id": "1013103955535-8ndnn2imukc7u1q396kedtpl5mgm9vf9.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "690641507832-49etklc61cpuijm6tkpeo6k2g8tn6rl9.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.gennynewv2"
-              }
             }
           ]
         }

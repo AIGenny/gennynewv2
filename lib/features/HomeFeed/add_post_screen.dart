@@ -181,7 +181,7 @@ class _AddPostScreenState extends ConsumerState<AddPostScreen> {
                       child: TextField(
                         controller: _descriptionController,
                         style: TextStyle(
-                          color: Colors.black,
+
                           fontSize: 15
                         ),
                         decoration: const InputDecoration(

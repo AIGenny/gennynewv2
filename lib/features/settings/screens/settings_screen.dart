@@ -21,7 +21,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   bool receiveEmails = true,
       newsLetter = false,
       notifyLikes = true,
-      notifyComments = true;
+      notifyComments = true,
+      isDarkMode=false;
 
   void updateOptions(String option, bool value) async {
     await ref
@@ -46,6 +47,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     newsLetter = user.newsLetter;
     notifyComments = user.notifyComments;
     notifyLikes = user.notifyLikes;
+    isDarkMode= ref.watch(appThemeProvider);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -61,13 +63,40 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         padding: const EdgeInsets.only(left: 16.0, right: 16),
         child: ListView(
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width:
+                  (MediaQuery.of(context).size.width - 32) * 0.8,
+                  child: const HeadingText(
+                    heading:
+                    "Theme ",
+                  ),
+                ),
+                SizedBox(
+                  width:
+                  (MediaQuery.of(context).size.width - 32) * 0.2,
+                  height: 8,
+                  child: Switch(
+                      activeColor: Colors.blue,
+                      onChanged: (value) {
+                        print("jjj");
+                        print(ref.read(appThemeProvider.notifier).state);
+                       ref.read(appThemeProvider.notifier).state = value;
+                      },
+                      value: isDarkMode )
+                )
+              ],
+            ),
             ExpansionPanelList(
               animationDuration: const Duration(milliseconds: 500),
               elevation: 0,
               children: [
                 ExpansionPanel(
+                  backgroundColor: ref.read(appThemeProvider.notifier).state==true?Colors.black:Colors.white,
                   headerBuilder: (BuildContext context, bool isExpanded) {
-                    return const Row(
+                    return  Row(
                       children: [
                         Icon(Icons.notifications_outlined),
                         Text(
@@ -213,6 +242,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   ),
                 ),
                 ExpansionPanel(
+                  backgroundColor: ref.read(appThemeProvider.notifier).state==true?Colors.black:Colors.white,
                   headerBuilder: (BuildContext context, bool isExpanded) {
                     return const Row(
                       children: [
@@ -231,6 +261,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   body: const RateReviewExpandedWidget(),
                 ),
                 ExpansionPanel(
+                  backgroundColor: ref.read(appThemeProvider.notifier).state==true?Colors.black:Colors.white,
                   headerBuilder: (BuildContext context, bool isExpanded) {
                     return const Row(
                       children: [
@@ -255,6 +286,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 });
               },
             ),
+
             Row(
               children: [
                 const Icon(Icons.login, size: 24),
@@ -266,7 +298,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   child: const Text(
                     'Logout',
                     style: TextStyle(
-                      color: Colors.black,
                       fontSize: 18,
                       fontWeight: FontWeight.w400,
                     ),
@@ -275,7 +306,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 ),
               ],
             ),
-            const Divider(),
+
           ],
         ),
       ),

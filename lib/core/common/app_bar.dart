@@ -38,7 +38,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
               },
             icon: const Icon(
               Icons.whatshot_outlined,
-              color: Colors.black,
+
               size: 28,
             ),
           );

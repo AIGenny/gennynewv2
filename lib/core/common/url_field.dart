@@ -12,7 +12,7 @@ class UrlInputField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       style: const TextStyle(
-        color: Colors.black, // Set the text color to black
+          // Set the text color to black
       ),
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(

@@ -6,6 +6,12 @@ class UserModel {
   final String uid;
   final bool isAuthenticated;
   final bool notifyLikes, notifyComments, receiveEmails, newsLetter;
+  final String username;
+  final String bio;
+  final List followers;
+  final List following;
+  final String email;
+
   UserModel({
     required this.name,
     required this.profilePic,
@@ -15,6 +21,11 @@ class UserModel {
     this.notifyComments = true,
     this.receiveEmails = true,
     this.newsLetter = false,
+    required this.email,
+    required this.bio,
+    required this.followers,
+    required this.following,
+    required this.username,
   });
 
   UserModel copyWith({
@@ -22,12 +33,22 @@ class UserModel {
     String? profilePic,
     String? uid,
     bool? isAuthenticated,
+    String? username,
+    String? bio,
+    List? followers,
+    List? following,
+    String? email,
   }) {
     return UserModel(
       name: name ?? this.name,
       profilePic: profilePic ?? this.profilePic,
       uid: uid ?? this.uid,
       isAuthenticated: isAuthenticated ?? this.isAuthenticated,
+      username: username ?? this.username,
+      bio: bio ??this.bio,
+      followers: followers ??this.followers,
+      following: following ?? this.following,
+      email: email ?? this.email,
     );
   }
 
@@ -41,6 +62,11 @@ class UserModel {
       'notifyComments': notifyComments,
       'receiveEmails': receiveEmails,
       'newsLetter': newsLetter,
+      "bio": bio,
+      "followers": followers,
+      "following": following,
+      "username": username,
+      "email": email,
     };
   }
 
@@ -54,6 +80,11 @@ class UserModel {
       notifyComments: (map['notifyComments'] ?? false) as bool,
       receiveEmails: (map['receiveEmails'] ?? false) as bool,
       newsLetter: (map['newsLetter'] ?? false) as bool,
+      bio: map['bio'] as String,
+      followers: map['followers'],
+      following: map['following'],
+      username: map['username'],
+      email: map['email'],
     );
   }
 

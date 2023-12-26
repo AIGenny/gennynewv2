@@ -78,7 +78,6 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                         title: Text(
                           (snapshot.data! as dynamic).docs[index]['name'],
-                          style: TextStyle(color: Colors.black),
                         ),
                       ),
                     );

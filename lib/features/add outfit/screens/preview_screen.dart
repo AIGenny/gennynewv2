@@ -34,7 +34,7 @@ class _PreviewScreenState extends ConsumerState<PreviewScreen> {
         OutfitModel(
           imageLinks: [],
           title: outfitController.outfitTitle.toLowerCase(),
-          purchaseUrl: outfitController.outfitLink,
+          purchaseUrls: [],
           description: outfitController.outfitDescription,
         ),
       )
@@ -49,6 +49,7 @@ class _PreviewScreenState extends ConsumerState<PreviewScreen> {
       });
       // navigateTo(context, Routes.myOutfitScreen);
     }
+
 
     int horizontalTileCount = outfitController.outfitImages.length - 1;
     if (outfitController.file != null) {

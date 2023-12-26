@@ -74,6 +74,11 @@ class AuthRepository {
           profilePic: userCredential.user!.photoURL ?? Constants.avatarDefault,
           uid: userCredential.user!.uid,
           isAuthenticated: true,
+          following: [],
+          followers: [],
+          username: userCredential.user!.displayName ??"no name",
+          email: userCredential.user!.email ?? "no email",
+          bio: "",
         );
 
         await _users.doc(userCredential.user!.uid).set(userModel.toMap());

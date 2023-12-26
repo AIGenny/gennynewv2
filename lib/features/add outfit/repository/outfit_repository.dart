@@ -74,29 +74,13 @@ class OutfitReposity {
   }
 
   Stream<List<OutfitModel>> getOutfits() {
-    return _outfitCollection.snapshots().map((event) {
-      List<OutfitModel> outfits = [];
-      for (var doc in event.docs) {
-        final map = doc.data() as Map<String, dynamic>;
-        final imageLinks = map['imageLinks'] as List;
-        final List<String> imageLinksString = [];
-        for (var i = 0; i < imageLinks.length; i++) {
-          imageLinksString.add(imageLinks[i].toString());
-        }
-        outfits.add(
-          OutfitModel(
-            id: map['id'],
-            imageLinks: imageLinksString,
-            title: map['title'],
-            purchaseUrl: map['purchaseUrl'],
-            description: map['description'],
-          ),
-        );
-      }
-      return outfits;
-    });
+    return _outfitCollection.snapshots().map(
+          (event) => event.docs
+          .map((doc) =>
+          OutfitModel.fromMap(doc.data() as Map<String, dynamic>))
+          .toList(),
+    );
   }
-
   // Stream<OutfitModel> getOutFitsSnapshot() {
   //    _outfitCollection.snapshots().map((event) {
   //     return event.docs.map((e) => OutfitModel.fromMap(e.data() as Map<String, dynamic>));
@@ -111,29 +95,10 @@ class OutfitReposity {
       isLessThanOrEqualTo: '${title}z',
     )
         .snapshots()
-        .map((event) {
-      List<OutfitModel> outfits = [];
-      for (var doc in event.docs) {
-        final map = doc.data() as Map<String, dynamic>;
-
-        // parsing imageLinks as string
-        final imageLinks = map['imageLinks'] as List;
-        final List<String> imageLinksString = [];
-        for (var i = 0; i < imageLinks.length; i++) {
-          imageLinksString.add(imageLinks[i].toString());
-        }
-
-        outfits.add(
-          OutfitModel(
-            imageLinks: imageLinksString,
-            title: map['title'],
-            purchaseUrl: map['purchaseUrl'],
-            description: map['description'],
-          ),
-        );
-      }
-      return outfits;
-    });
+        .map((event) => event.docs
+        .map((doc) =>
+        OutfitModel.fromMap(doc.data() as Map<String, dynamic>))
+        .toList());
   }
 
   Future<void> editOutfit(OutfitModel outfit) async {

@@ -20,7 +20,7 @@ class HeadingText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       heading.capitalize(),
-      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w300, color: Colors.black),
+      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w300,),
     );
   }
 }
@@ -77,7 +77,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             padding: EdgeInsets.zero,
             icon: const Icon(
               Icons.search,
-              color: Colors.black,
+
               size: 28,
             ),
           ),
@@ -88,7 +88,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           padding: EdgeInsets.zero,
           icon: const Icon(
             Icons.settings_outlined,
-            color: Colors.black,
+
             size: 28,
           ),
         ),
@@ -98,7 +98,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           },
           icon: const Icon(
             Icons.whatshot_outlined,
-            color: Colors.black,
+
             size: 28,
           ),
         ),
@@ -166,7 +166,7 @@ class CustomTextFormField extends StatelessWidget {
             minLines: minLines,
             maxLines: minLines > 1 ? (minLines * 2) : 1,
             controller: controller,
-            style: const TextStyle(color: Colors.black),
+
             decoration: InputDecoration(
               focusedBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(0)),

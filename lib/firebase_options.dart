@@ -17,15 +17,24 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,39 +52,11 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyC7glYqglbxE3RB1M5MT9g7ttU1NCYUWEs',
-    appId: '1:690641507832:web:36cb1f5f2f0a6a1805720d',
-    messagingSenderId: '690641507832',
-    projectId: 'genny-v2-75394',
-    authDomain: 'genny-v2-75394.firebaseapp.com',
-    storageBucket: 'genny-v2-75394.appspot.com',
-    measurementId: 'G-FJQKX9W81K',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyACezt6NmfpvK-imgX2nGZ3MXJSPA3Ssx8',
-    appId: '1:690641507832:android:7b3f81da4d8af4b705720d',
-    messagingSenderId: '690641507832',
-    projectId: 'genny-v2-75394',
-    storageBucket: 'genny-v2-75394.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAzCAsZKTmA1qtvLlUe6jjg_kIAfzut81U',
-    appId: '1:690641507832:ios:09d854795d4054a105720d',
-    messagingSenderId: '690641507832',
-    projectId: 'genny-v2-75394',
-    storageBucket: 'genny-v2-75394.appspot.com',
-    iosBundleId: 'com.example.gennynewv2',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAzCAsZKTmA1qtvLlUe6jjg_kIAfzut81U',
-    appId: '1:690641507832:ios:2a438bedd891c98405720d',
-    messagingSenderId: '690641507832',
-    projectId: 'genny-v2-75394',
-    storageBucket: 'genny-v2-75394.appspot.com',
-    iosBundleId: 'com.example.gennynewv2.RunnerTests',
+    apiKey: 'AIzaSyCmBnRpiM9ZWiRkW2XDKGdGMnWnb3d4UAM',
+    appId: '1:1013103955535:android:39c0a0f908af5cbe4ce43a',
+    messagingSenderId: '1013103955535',
+    projectId: 'genny-v2-65c21',
+    storageBucket: 'genny-v2-65c21.appspot.com',
   );
 }

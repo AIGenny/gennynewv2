@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 import '../../core/utilies.dart';
+import '../../theme/app_theme.dart';
 import '../auth/controller/auth_controller.dart';
 import '../post/screens/commentScreen.dart';
 import 'like_animation.dart';
@@ -42,14 +43,12 @@ class _PostCardState extends ConsumerState<PostCard> {
     setState(() {
       commentLen = snap.docs.length;
     });
-
     } catch (err) {
       showSnackBar(
         context,
         err.toString(),
       );
     }
-
   }
 
   deletePost(String postId) async {
@@ -78,12 +77,9 @@ class _PostCardState extends ConsumerState<PostCard> {
               backgroundImage: NetworkImage(user!.profilePic),
             ),
             minLeadingWidth: 20,
-            titleTextStyle: const TextStyle(color: Colors.black),
-            title:  Text( widget.snap['username'].toString(),style: TextStyle(
-              color: Colors.black,
-            ),),
+            title:  Text(widget.snap['username'].toString(),),
             subtitle: const HeadingText2(heading: "via Reddit"),
-            trailing: Icon(Icons.more_vert,color: Colors.black,),
+            trailing: Icon(Icons.more_vert,),
           ),
           GestureDetector(
             onDoubleTap: () {
@@ -133,7 +129,7 @@ class _PostCardState extends ConsumerState<PostCard> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: HeadingText(heading: "Top fashion designers in US. Can you guess who they are before you watch the video?"),
+            child: HeadingText(heading: widget.snap['description'].toString()),
           ),
 
           Column(
@@ -163,7 +159,7 @@ class _PostCardState extends ConsumerState<PostCard> {
                   Text(
                     "${widget.snap['likes'].length.toString()} Likes",
                     style: const TextStyle(
-                      color: Colors.black,
+
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                     ),
@@ -195,7 +191,7 @@ class _PostCardState extends ConsumerState<PostCard> {
                   Text(
                     " ${commentLen} comment${(3 == 1) ? '' : 's'}",
                     style: TextStyle(
-                      color: Colors.black,
+
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                     ),
@@ -512,8 +508,9 @@ class HeadingText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       capitalize ? heading.capitalize() : heading,
+
       style: const TextStyle(
-          fontSize: 16, fontWeight: FontWeight.w300, color: Colors.black),
+          fontSize: 16, fontWeight: FontWeight.w300,),
     );
   }
 }
